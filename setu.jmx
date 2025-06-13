@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
-      <stringProp name="TestPlan.comments"></stringProp>
-      <boolProp name="TestPlan.functional_mode">false</boolProp>
-      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
-      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
-      <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
@@ -26,7 +22,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
         <stringProp name="HTTPSampler.protocol">https</stringProp>
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
           <collectionProp name="Arguments.arguments"/>
@@ -37,7 +33,7 @@
       <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
         <collectionProp name="CookieManager.cookies">
           <elementProp name="__test" elementType="Cookie" testname="__test">
-            <stringProp name="Cookie.value">fad58232abd70d30b20e93c9ed0504c0</stringProp>
+            <stringProp name="Cookie.value">d61753a3e161ad86bb94e71dfced3459</stringProp>
             <stringProp name="Cookie.domain">setubandhan.free.nf</stringProp>
             <stringProp name="Cookie.path">/</stringProp>
             <boolProp name="Cookie.secure">false</boolProp>
@@ -46,7 +42,7 @@
             <boolProp name="Cookie.domain_specified">true</boolProp>
           </elementProp>
           <elementProp name="laravel_session" elementType="Cookie" testname="laravel_session">
-            <stringProp name="Cookie.value">eyJpdiI6IlVKT3hZNFhPeGh5NC9rdytqNU1HNUE9PSIsInZhbHVlIjoiZDFTNDdyaVNIQU1mTHRvSzg1MFBGekRkSnpDWnQ5MGJjOGZkYUtqN0hxeXpUbFhacU1KQ1Z4SzNVa1VPVFppUDlGVnJRRGY2L1JDdEdFcmpPU3BtT041RzdPeFVOd2l4L0VzeWZhbGZDRUtyVWxNK1daMCtpYlRPUzNXNEEwRVUiLCJtYWMiOiI1NWYwMTFkYzYxNjVkMzViMzBmZDgxZmMxNjIxYzM2MDdkNTVmOWQ3ZTQyNzYwMzQ4MTkxYWMxNTI5ZWMyZGJkIiwidGFnIjoiIn0%3D</stringProp>
+            <stringProp name="Cookie.value">eyJpdiI6IjA3d3dreHh4bHJwVDE5YmNZS01aa0E9PSIsInZhbHVlIjoiQWlmNFZpN3RXVEJ6U3AvaThYZmVEb09PQy9nOXdMb3M1QUh1bWtyWFo3ckVIV2I3M2V0NEpsWk1TTVJwZ3dFVUIzTG1DSlV0TG1Dcmlqa0Z4SDh6c3NPOENzbktwQVIyM3lucVJNS0pVV3p0c2dESGVBMDBMMllQRlc3YjFuZTMiLCJtYWMiOiJiNGNkNDJhMzEwZTQ5MGU3MTRiZTMyZmQ0MGU0NDhiZTkwMjE5NmVkYzg4YTNjMjQ5MDUzYTFiNTI5MTYxYzMxIiwidGFnIjoiIn0%3D</stringProp>
             <stringProp name="Cookie.domain">setubandhan.free.nf</stringProp>
             <stringProp name="Cookie.path">/</stringProp>
             <boolProp name="Cookie.secure">false</boolProp>
@@ -55,7 +51,7 @@
             <boolProp name="Cookie.domain_specified">true</boolProp>
           </elementProp>
           <elementProp name="XSRF-TOKEN" elementType="Cookie" testname="XSRF-TOKEN">
-            <stringProp name="Cookie.value">eyJpdiI6Inpaajl3NHM5M1o0TnVqYmVTV3BKMHc9PSIsInZhbHVlIjoiVmdDZzFGMWpzVk9xcERiT0lHdkJZb3N2eGNXS0dRZXo3Yjh0bmhsQjVKWTVjUkRqbG91VXBWOHBTeWRIMWQ0dXROdk0zRWhKQjc2Y3gxOU9YZGR2TkU5aGEyTUpiWUtlc3NTN2xiWjFWUS9xNThmV2hoQy9BSXYxOHVzUEloVDAiLCJtYWMiOiJlMGU3YjRjMGY5M2QyYjc3OTAzYmM4MDUwNzk2MGI3ZWMwNTM3N2U0ZmQ3ODFiYzE1MDJmZDcyMGNhZGE2Y2IxIiwidGFnIjoiIn0%3D</stringProp>
+            <stringProp name="Cookie.value">eyJpdiI6IlBxL2FaSzRFNWh5bDZyNlZNR1QxMHc9PSIsInZhbHVlIjoialVWUnIzT3dId05yNG56eGd3SUlWeFB2N0JUNXVFRGpKbDJlRERNQzhkZDNzVmxvM2xQMkszWWxOdDkwdjFyUWhraEZHUzBpVDdFMXd5aXFYRzFMTWIvWTRSNXRGNnBJUTYvY2RRbzlUL0JJOS9XNjZmTkxuSTE5dW5Lcm1FeDQiLCJtYWMiOiI0OGQwMGI5NDZmYmJmZjY0NDFjZDMwODU2N2IwMGIwNTA2ZmFjMGEwMGE0YjNhOTQ5NDIwZjY2ZjgyNWRhM2JhIiwidGFnIjoiIn0%3D</stringProp>
             <stringProp name="Cookie.domain">setubandhan.free.nf</stringProp>
             <stringProp name="Cookie.path">/</stringProp>
             <boolProp name="Cookie.secure">false</boolProp>
@@ -146,7 +142,7 @@
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -160,7 +156,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -181,7 +177,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-1">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-1" enabled="true">
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
@@ -246,7 +242,7 @@ if (responseTime &gt; threshold) {
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -260,7 +256,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -341,12 +337,12 @@ if (responseTime &gt; threshold) {
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -360,7 +356,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -381,7 +377,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-3">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-3" enabled="true">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -493,12 +489,12 @@ if (responseTime &gt; threshold) {
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -512,7 +508,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -534,12 +530,12 @@ if (responseTime &gt; threshold) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-0">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-0" enabled="true">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -602,7 +598,7 @@ if (responseTime &gt; threshold) {
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
               <boolProp name="resetInterpreter">false</boolProp>
@@ -628,12 +624,12 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
 </stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -647,7 +643,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -668,7 +664,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-1">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-1" enabled="true">
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
@@ -762,12 +758,12 @@ if (responseTime &gt; threshold) {
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -781,7 +777,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -866,12 +862,12 @@ if (responseTime &gt; threshold) {
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -885,7 +881,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -906,7 +902,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-3">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-3" enabled="true">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1018,12 +1014,12 @@ if (responseTime &gt; threshold) {
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -1037,7 +1033,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -1059,12 +1055,12 @@ if (responseTime &gt; threshold) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Plp">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Plp" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Plp-0">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Plp-0" enabled="true">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1078,7 +1074,7 @@ if (responseTime &gt; threshold) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1132,7 +1128,7 @@ if (responseTime &gt; threshold) {
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -1146,7 +1142,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -1167,7 +1163,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Plp-1">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Plp-1" enabled="true">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1238,7 +1234,7 @@ if (responseTime &gt; threshold) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1284,7 +1280,7 @@ if (responseTime &gt; threshold) {
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -1298,7 +1294,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -1320,7 +1316,7 @@ if (responseTime &gt; threshold) {
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="buyNow">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="buyNow" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
@@ -1414,8 +1410,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
 </stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 500;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = &quot;Logs/api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="buyNow-1">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="buyNow-1" enabled="true">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1486,7 +1521,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1527,13 +1562,12 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-          </hashTree>
-          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
-            <boolProp name="resetInterpreter">false</boolProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="script">// Set threshold
-int threshold = 3000;
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -1546,8 +1580,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 // Timestamp
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
-// File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -1565,15 +1598,16 @@ if (responseTime &gt; threshold) {
     pw.close();
     fw.close();
 }</stringProp>
-          </BeanShellPostProcessor>
-          <hashTree/>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PlaceOrder">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PlaceOrder" enabled="true">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-0">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-0" enabled="true">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1762,7 +1796,7 @@ if (responseTime &gt; threshold) {
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -1776,7 +1810,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -1797,7 +1831,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-1">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-1" enabled="true">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1868,7 +1902,7 @@ if (responseTime &gt; threshold) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1914,7 +1948,7 @@ if (responseTime &gt; threshold) {
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -1928,7 +1962,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -1949,7 +1983,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-2">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-2" enabled="true">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1963,7 +1997,7 @@ if (responseTime &gt; threshold) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -2017,7 +2051,7 @@ if (responseTime &gt; threshold) {
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -2031,7 +2065,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -2052,7 +2086,7 @@ if (responseTime &gt; threshold) {
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-3">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-3" enabled="true">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -2164,12 +2198,12 @@ if (responseTime &gt; threshold) {
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">// Set threshold
-int threshold = 3000;
+int threshold = 500;
  
 // Get response details
 long responseTime = prev.getTime();
@@ -2183,7 +2217,7 @@ String url = prev.getURL().toString(); // changed from sampler.getUrl()
 String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
  
 // File path (adjust as needed)
-String filePath = timestamp+&quot;_api_log.csv&quot;;
+String filePath = &quot;Logs/api_log.csv&quot;;
  
 if (responseTime &gt; threshold) {
     FileWriter fw = new FileWriter(filePath, true); // true = append mode
@@ -2289,7 +2323,7 @@ if (responseTime &gt; threshold) {
         <stringProp name="ProxyControlGui.default_encoding">UTF-8</stringProp>
       </ProxyControl>
       <hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -2325,7 +2359,7 @@ if (responseTime &gt; threshold) {
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\ARIJIT\QA_TRADER_JOES\PT SCRIPTS\setuRecording.jtl</stringProp>
+          <stringProp name="filename">C:\ARIJIT\QA_TRADER_JOES\PT SCRIPTS\SETU_BANDHAN\setuRecording.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
       </hashTree>
