@@ -84,7 +84,7 @@
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-7">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-0">
             <stringProp name="HTTPSampler.domain">www.google.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -120,7 +120,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
@@ -141,8 +141,47 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-8">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-1">
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
@@ -157,7 +196,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -202,8 +241,47 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-9" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-2" enabled="false">
             <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
@@ -263,8 +341,47 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-11">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HomePage-3">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -376,6 +493,45 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login">
@@ -383,7 +539,7 @@
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-12">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-0">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -446,7 +602,7 @@
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
               <boolProp name="resetInterpreter">false</boolProp>
@@ -472,8 +628,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
 </stringProp>
             </BeanShellPostProcessor>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-13">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-1">
             <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
@@ -567,8 +762,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-14" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-2" enabled="false">
             <stringProp name="TestPlan.comments">Detected a redirect from the previous sample</stringProp>
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
@@ -632,8 +866,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-16">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login-3">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -745,6 +1018,45 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Plp">
@@ -752,7 +1064,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-17" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Plp-0">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -766,7 +1078,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -815,8 +1127,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-18">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Plp-1">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -887,7 +1238,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -928,6 +1279,45 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="buyNow">
@@ -935,7 +1325,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-19">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="buyNow-0">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -949,7 +1339,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -998,7 +1388,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
-            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
               <stringProp name="filename"></stringProp>
               <stringProp name="parameters"></stringProp>
               <boolProp name="resetInterpreter">false</boolProp>
@@ -1025,7 +1415,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-20">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="buyNow-1">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1138,13 +1528,52 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </HeaderManager>
             <hashTree/>
           </hashTree>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
         </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PlaceOrder">
           <boolProp name="TransactionController.parent">true</boolProp>
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-21">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-0">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1271,7 +1700,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1328,8 +1757,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-22" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-1">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1400,7 +1868,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1441,8 +1909,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-23" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-2">
             <stringProp name="HTTPSampler.domain">setubandhan.free.nf</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1456,7 +1963,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Sec-Fetch-Mode" elementType="Header">
                   <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
@@ -1505,8 +2012,47 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
               </collectionProp>
             </HeaderManager>
             <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="-24" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PlaceOrder-3">
             <stringProp name="HTTPSampler.domain">sp.tinymce.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
@@ -1617,6 +2163,45 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
                 </elementProp>
               </collectionProp>
             </HeaderManager>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">// Set threshold
+int threshold = 3000;
+ 
+// Get response details
+long responseTime = prev.getTime();
+boolean isSuccess = prev.isSuccessful();
+String samplerName = prev.getSampleLabel();
+String responseData = prev.getResponseDataAsString().replaceAll(&quot;[\\r\\n]+&quot;, &quot; &quot;).replace(&quot;,&quot;, &quot;;&quot;); // clean response
+String responseCode = prev.getResponseCode();
+String url = prev.getURL().toString(); // changed from sampler.getUrl()
+ 
+// Timestamp
+String timestamp = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new java.util.Date());
+ 
+// File path (adjust as needed)
+String filePath = timestamp+&quot;_api_log.csv&quot;;
+ 
+if (responseTime &gt; threshold) {
+    FileWriter fw = new FileWriter(filePath, true); // true = append mode
+    PrintWriter pw = new PrintWriter(fw);
+ 
+    // CSV Format: Timestamp,SamplerName,URL,ResponseTime(ms),Status,Code,ResponseData
+    pw.println(&quot;\&quot;&quot; + timestamp + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + samplerName + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + url + &quot;\&quot;,&quot;
+             + responseTime + &quot;,&quot;
+             + &quot;\&quot;&quot; + (isSuccess ? &quot;SUCCESS&quot; : &quot;FAILURE&quot;) + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseCode + &quot;\&quot;,&quot;
+             + &quot;\&quot;&quot; + responseData + &quot;\&quot;&quot;);
+    
+    pw.close();
+    fw.close();
+}</stringProp>
+            </BeanShellPostProcessor>
             <hashTree/>
           </hashTree>
         </hashTree>
@@ -1704,7 +2289,7 @@ log.info(&quot;Extracted CSRF Token: &quot; + csrfToken);
         <stringProp name="ProxyControlGui.default_encoding">UTF-8</stringProp>
       </ProxyControl>
       <hashTree>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
